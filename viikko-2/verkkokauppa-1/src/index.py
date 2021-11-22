@@ -11,6 +11,7 @@ def main():
     varasto = Varasto(kirjanpito)
     pankki = Pankki(kirjanpito)
     kauppa = Kauppa()
+    
 
 
     # kauppa hoitaa yhden asiakkaan kerrallaan seuraavaan tapaan:
