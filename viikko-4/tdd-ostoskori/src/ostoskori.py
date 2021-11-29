@@ -38,7 +38,7 @@ class Ostoskori:
         ostokset = list()
 
         for ostos in self.ostoskori:
-            ostos = Ostos(ostos.nimi)
+            ostos = Ostos(ostos.nimi())
             ostokset.append(ostos)
         return ostokset
         # palauttaa listan jossa on korissa olevat ostos-oliot
