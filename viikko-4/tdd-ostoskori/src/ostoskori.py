@@ -38,13 +38,15 @@ class Ostoskori:
         ostokset = list()
         lisatyt_tuotteet = list()
 
-        for ostos in self.ostoskori:
-            ostos = Ostos(ostos.nimi())
-            if ostos.tuote not in lisatyt_tuotteet:
-                ostokset.append(ostos)
-                lisatyt_tuotteet.append(ostos.tuote)
+        for tuote in self.ostoskori:
+            if tuote.nimi() in lisatyt_tuotteet:
+                for ostos in ostokset:
+                    if ostos.tuote == tuote.nimi():
+                        ostos.muuta_lukumaaraa(1)
             else:
-                ostos.muuta_lukumaaraa(1)
+                lisatyt_tuotteet.append(tuote.nimi())
+                ostos = Ostos(tuote.nimi())
+                ostokset.append(ostos)
 
         return ostokset
         # palauttaa listan jossa on korissa olevat ostos-oliot
