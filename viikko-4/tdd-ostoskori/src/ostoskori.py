@@ -28,7 +28,7 @@ class Ostoskori:
 
     def poista_tuote(self, poistettava: Tuote):
         # poistaa tuotteen
-        pass
+        self.ostoskori.remove(poistettava)
 
     def tyhjenna(self):
         pass
