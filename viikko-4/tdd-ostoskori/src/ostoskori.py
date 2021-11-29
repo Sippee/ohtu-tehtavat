@@ -36,10 +36,16 @@ class Ostoskori:
 
     def ostokset(self):
         ostokset = list()
+        lisatyt_tuotteet = list()
 
         for ostos in self.ostoskori:
             ostos = Ostos(ostos.nimi())
-            ostokset.append(ostos)
+            if ostos.tuote not in lisatyt_tuotteet:
+                ostokset.append(ostos)
+                lisatyt_tuotteet.append(ostos.tuote)
+            else:
+                ostos.muuta_lukumaaraa(1)
+
         return ostokset
         # palauttaa listan jossa on korissa olevat ostos-oliot
         # kukin ostos-olio siis kertoo mistä tuotteesta on kyse JA kuinka monta kappaletta kyseistä tuotetta korissa on
